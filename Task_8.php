@@ -28,7 +28,7 @@
  *-выбрать все продукты из всех активных категорий цена которых 
  *  больше одного доллара и меньше трех в названии которых 
  *  есть слово 'Cola'
- * SELECT * FROM `product` WHERE 'category_id' = 1 AND 'price' > 1 AND 
+ * SELECT * FROM `product` WHERE 'status' = 1 AND 'price' > 1 AND 
  * 'price'< 3 AND `title` LIKE '%Cola%';
  */
 
