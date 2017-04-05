@@ -13,17 +13,18 @@ class PostController extends AppControler{
     public function actionIndex() {
         $hello = 'Привет, мир!';
         $hi = 'Hi!';
-        return $this->render('index', compact('hello', 'hi'));
         
+        return $this->render('index', compact('hello', 'hi'));
+   
     }
     public function actionTest() {
-        return $this->render('test');
+        
         
     }
     
     public function actionHello() {
         return $this->render('hello');
-        
+    
     }
     
 }
