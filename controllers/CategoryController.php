@@ -9,19 +9,18 @@
 namespace app\controllers;
 
 
-use app\models\Category;
+use app\models\CategoryForm;
 use yii\base\Controller;
 
 
-class CategoryController extends BaseController {
-    public function actionCreateCategory ()
+class CategoryController extends BaseController
+{
+    public function actionCreate()
     {
-        $formCreateCategory = new Category();
+        $model = new CategoryForm();
 
-        return $this->render('formCreateCategory',
-            ['formCreateCategory' => $formCreateCategory]
-        );
+        return $this->render('create', [
+            'model' => $model
+        ]);
     }
-
-
 }

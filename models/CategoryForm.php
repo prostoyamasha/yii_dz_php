@@ -13,28 +13,24 @@ use yii\base\Model;
 use yii\db\ActiveRecord;
 
 
-class Category extends ActiveRecord
+class CategoryForm extends ActiveRecord
 {
-    public $idOfCategory;
-    public $titleOfCategory;
-    public $statusOfCategory;
+    public $id;
+    public $title;
+    public $status;
 
     public static function tableName()
     {
         return 'category';
     }
 
-
     public function rules()
     {
         return [
-            ['idOfCategory', 'integer'],
-            ['titleOfCategory', 'varchar'],
-            ['statusOfCategory', 'integer', 'min' => 0, 'max' => 1]
+            ['id', 'integer'],
+            ['title', 'string', 'max' => 255],
+            ['status', 'integer', 'min' => 0, 'max' => 1]
 
         ];
     }
-
-
-
 }
