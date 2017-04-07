@@ -1,6 +1,6 @@
-<code><?=__FILE__?></code>
-<br>
-<?= $hello?>
-<br>
-<?= $hi?>
-
+<div>
+    <?php echo $contentVariable; ?>
+</div>
+<div>
+    <?php echo Yii::$app->content->getContent(); ?>
+</div>
