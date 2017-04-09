@@ -15,7 +15,7 @@ use yii\db\ActiveRecord;
 
 class CategoryForm extends ActiveRecord
 {
-   // public $id;
+    //public $id;
     //public $title;
     //public $status;
 

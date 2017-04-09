@@ -21,9 +21,9 @@ class CategoryController extends BaseController
     public function actionCreate()
     {
         $model = new CategoryForm();
-        $model->id;
-        $model->title;
-        $model->status;
+        //$model->id;
+        //$model->title;
+        //$model->status;
 
         if ( $model->load( \Yii::$app->request->post())&& $model->validate()){
             $model->save();
