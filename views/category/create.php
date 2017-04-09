@@ -6,9 +6,7 @@ use yii\helpers\Html;
 <h1>Create Category</h1>
 <?php $form = ActiveForm::begin(); ?>
 
-<?php echo $form->field($model, 'id') ?>
 <?php echo $form->field($model, 'title') ?>
-<?php echo $form->field($model, 'status') ?>
 <?php echo Html::submitButton('Create',['class'=>'btn btn-primary']); ?>
 
 <?php ActiveForm::end(); ?>
