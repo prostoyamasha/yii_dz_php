@@ -15,12 +15,27 @@ use yii\base\Controller;
 
 class CategoryController extends BaseController
 {
+    /**
+     * @return string
+     */
     public function actionCreate()
     {
         $model = new CategoryForm();
+        $model->id;
+        $model->title;
+        $model->status;
+
+        if ( $model->load( \Yii::$app->request->post())&& $model->validate()){
+            $model->save();
+            }
+
 
         return $this->render('create', [
             'model' => $model
         ]);
+
+
     }
+
+
 }
