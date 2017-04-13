@@ -2,6 +2,7 @@
 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use app\components\Category;
 
 ?>
@@ -10,7 +11,7 @@ use app\components\Category;
 
 <?php echo $form->field($model, 'title') ?>
 
-<?php echo Html::dropDownList('status','1', Category::getStatuses()); ?>
+<?php echo Html::dropDownList('status', ArrayHelper::map(и-пеамк), Category::getStatuses(), ''); ?>
 
 <?php echo Html::submitButton('Create',['class'=>'btn btn-primary']); ?>
 
