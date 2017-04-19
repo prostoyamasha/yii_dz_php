@@ -15,6 +15,9 @@ $config = [
         'content' => [
             'class' => 'app\components\Content',
         ],
+        'category' => [
+            'class' => 'app\modules\admin\components\Category',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'I1Ai7Mqb2QfrArlDxVYXhSYHzv3KTQF_',
