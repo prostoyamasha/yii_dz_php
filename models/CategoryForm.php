@@ -18,4 +18,13 @@ class CategoryForm extends ActiveRecord
             ['status', 'integer', 'min' => 0, 'max' => 1]
         ];
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'title' => 'Title',
+            'status' => 'Status',
+        ];
+    }
 }

@@ -1,8 +1,13 @@
 <?php
 namespace app\controllers;
 
+use app\components\Category;
 use Yii;
 use app\models\CategoryForm;
+use yii\data\ActiveDataProvider;
+use yii\grid\GridView;
+use yii\db\Query;
+
 
 class CategoryController extends BaseController
 {
@@ -18,4 +23,28 @@ class CategoryController extends BaseController
             'model' => $model
         ]);
     }
+
+
+    public function actionIndex(){
+        $dataProvider = new ActiveDataProvider([
+            'query' => CategoryForm::find(),
+        ]);
+        echo GridView::widget([
+            'dataProvider' => $dataProvider,
+            'columns' => [
+
+                'id',
+                'title',
+                'status',
+            ],
+        ]);
+
+
+    }
+
+
+
+
+
+
 }
