@@ -31,6 +31,13 @@ class Category extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 255],
         ];
     }
+    public function getStatuses()
+    {
+        return [
+            0 => 'deleted',
+            1 => 'available'
+        ];
+    }
 
     /**
      * @inheritdoc
