@@ -14,6 +14,14 @@ class Category extends Component
         ];
     }
 
+    public function getStatusList()
+    {
+       return [
+           '1' => 'Pepsi',
+           '17' => 'CocaCola',
+       ];
+    }
+
     public function getStatusById($id)
     {
         $statuses = $this->getStatuses();
