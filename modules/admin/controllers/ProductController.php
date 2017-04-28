@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Category;
 use Yii;
 use app\modules\admin\models\Product;
 use yii\data\ActiveDataProvider;
@@ -38,9 +39,15 @@ class ProductController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Product::find(),
         ]);
+        $modelCategory = Category::find()->orderBy('title')->all();
+
+        foreach ($modelCategory as $value) {
+            $arrCategory[$value->id] = $value->title;
+        }
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'arrCategory' => $arrCategory,
         ]);
     }
 

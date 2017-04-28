@@ -3,6 +3,7 @@
 namespace app\modules\admin\models;
 
 use Yii;
+use app\modules\admin\models\Category;
 
 /**
  * This is the model class for table "product".
@@ -42,5 +43,10 @@ class Product extends \yii\db\ActiveRecord
             'title' => 'Title',
             'price' => 'Price',
         ];
+    }
+
+    public function getIdCategory()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 }
