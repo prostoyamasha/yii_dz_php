@@ -5,7 +5,7 @@ namespace app\modules\admin\controllers;
 use app\modules\admin\models\Category;
 use Yii;
 use app\modules\admin\models\Product;
-use yii\data\ActiveDataProvider;
+use app\modules\admin\models\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -36,18 +36,20 @@ class ProductController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Product::find(),
-        ]);
+        $searchModel = new ProductSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
         $modelCategory = Category::find()->orderBy('title')->all();
 
-        foreach ($modelCategory as $value) {
-            $arrCategory[$value->id] = $value->title;
+        foreach ($modelCategory as $value){
+            $listCategory[$value->id] = $value->title;
         }
 
+
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'arrCategory' => $arrCategory,
+            'listCategory' => $listCategory,
         ]);
     }
 

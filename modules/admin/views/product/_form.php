@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use app\modules\admin\models\Product;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Product */
@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(Yii::$app->category->getStatusList()) ?>
+    <?= $form->field($model, 'category_id')->textInput(); ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

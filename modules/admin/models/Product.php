@@ -3,7 +3,6 @@
 namespace app\modules\admin\models;
 
 use Yii;
-use app\modules\admin\models\Category;
 
 /**
  * This is the model class for table "product".
@@ -11,6 +10,9 @@ use app\modules\admin\models\Category;
  * @property integer $id
  * @property string $title
  * @property integer $price
+ * @property integer $category_id
+ *
+ * @property Category $category
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -28,8 +30,11 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['price'], 'integer'],
+            [['price', 'category_id'], 'integer'],
             [['title'], 'string', 'max' => 255],
+            [['category_id'], 'exist', 'skipOnError' => true,
+                'targetClass' => Category::className(),
+                'targetAttribute' => ['category_id' => 'id']],
         ];
     }
 
@@ -42,10 +47,14 @@ class Product extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'price' => 'Price',
+            'category_id' => 'Category',
         ];
     }
 
-    public function getIdCategory()
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }

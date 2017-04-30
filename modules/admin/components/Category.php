@@ -3,9 +3,14 @@
 namespace app\modules\admin\components;
 
 use yii\base\Component;
+use app\modules\admin\controllers\ProductController;
+use app\modules\admin\controllers\CategoryController;
+use app\modules\admin\models\Product;
+
 
 class Category extends Component
 {
+
     public function getStatuses()
     {
         return [
@@ -14,17 +19,13 @@ class Category extends Component
         ];
     }
 
-    public function getStatusList()
-    {
-       return [
-           '1' => 'Pepsi',
-           '17' => 'CocaCola',
-       ];
-    }
+
 
     public function getStatusById($id)
     {
         $statuses = $this->getStatuses();
         return !empty($statuses[$id]) ? $statuses[$id] : null;
     }
+
+
 }
