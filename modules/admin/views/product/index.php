@@ -24,17 +24,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'title',
             'price',
             //'category_id',
+            //[
+            //   'attribute' => 'category_id',
+            //  'value' => 'category.id',
+            // 'filter' => $listCategory,
+            // ],
             [
-                'attribute' => 'category_id',
-                'value' => 'category.id',
+                'attribute' => 'category.title',
+                'value' => 'category.title',
                 'filter' => $listCategory,
-                ],
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update} {delete}'],
         ],
     ]); ?>
 </div>

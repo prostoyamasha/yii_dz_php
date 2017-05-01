@@ -57,11 +57,14 @@ class ProductSearch extends Product
             return $dataProvider;
         }
 
+        $query->joinWith('category');
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'price' => $this->price,
             'category_id' => $this->category_id,
+            'category.title' => $this->title,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title]);
